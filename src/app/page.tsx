@@ -1,6 +1,6 @@
 import { supabase } from "@/lib/supabase";
 import CourseCard from "@/components/CourseCard";
-import { motion } from "framer-motion";
+
 export default async function Home() {
   const { data: courses, error } = await supabase
     .from("courses")
@@ -61,7 +61,7 @@ export default async function Home() {
                   <div
                     key={i}
                     className={`h-4 w-4 rounded ${
-                      Math.random() > 0.5
+                      i % 3 === 0
                         ? "bg-violet-500"
                         : "bg-zinc-700"
                     }`}
@@ -70,24 +70,15 @@ export default async function Home() {
               </div>
             </div>
 
-            {/* Dynamic Course Cards */}
-            {courses?.map((course, index) => (
-  <motion.div
-    key={course.id}
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{
-      delay: index * 0.15,
-      duration: 0.5,
-    }}
-  >
-    <CourseCard
-      title={course.title}
-      progress={course.progress}
-      icon_name={course.icon_name}
-    />
-  </motion.div>
-))}
+            {/* Course Cards */}
+            {courses?.map((course) => (
+              <CourseCard
+                key={course.id}
+                title={course.title}
+                progress={course.progress}
+                icon_name={course.icon_name}
+              />
+            ))}
           </div>
         </section>
       </div>

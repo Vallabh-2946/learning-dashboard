@@ -3,7 +3,10 @@ export default function Loading() {
     <main className="min-h-screen bg-black p-8">
       <div className="animate-pulse space-y-4">
         <div className="h-32 rounded-3xl bg-zinc-800"></div>
+
         <div className="grid md:grid-cols-2 gap-4">
+          <div className="h-40 rounded-3xl bg-zinc-800"></div>
+          <div className="h-40 rounded-3xl bg-zinc-800"></div>
           <div className="h-40 rounded-3xl bg-zinc-800"></div>
           <div className="h-40 rounded-3xl bg-zinc-800"></div>
         </div>
