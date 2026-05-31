@@ -1,18 +1,25 @@
 # Learning Dashboard
 
-A modern learning dashboard built using Next.js, TypeScript, Supabase, Tailwind CSS, Framer Motion, and Vercel.
+A modern learning dashboard built with Next.js, TypeScript, Supabase, Tailwind CSS, and Framer Motion.
+
+## Dashboard Preview
+
+![Dashboard Preview](public/screenshots/dashboard.png)
+
+---
 
 ## Project Overview
 
-This application displays a student's learning progress through dynamically loaded course cards. Course information is stored in Supabase and fetched in real time by the Next.js application.
+This project is a responsive learning dashboard that displays course progress information stored in Supabase. The application fetches data dynamically from the database and presents it through an intuitive dashboard interface.
 
-The dashboard includes:
+### Features
 
 * Dynamic course data from Supabase
-* Progress tracking cards
 * Responsive dashboard layout
 * Animated progress bars
-* Modern UI using Tailwind CSS
+* Activity tracking widget
+* Modern UI with Tailwind CSS
+* Course-specific icons using Lucide React
 * Cloud deployment using Vercel
 
 ---
@@ -21,7 +28,7 @@ The dashboard includes:
 
 ### Frontend
 
-* Next.js 16 (App Router)
+* Next.js 16
 * TypeScript
 * Tailwind CSS
 * Framer Motion
@@ -37,13 +44,13 @@ Supabase is used as the backend service and database. Course information is stor
 
 * Vercel
 
-The application is deployed on Vercel with automatic deployments from GitHub.
+The application is deployed on Vercel with automatic deployments connected to GitHub.
 
 ---
 
 ## Database Schema
 
-### courses
+### Table: courses
 
 | Column     | Type      |
 | ---------- | --------- |
@@ -61,53 +68,42 @@ Create a `.env.local` file:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
-
----
-
-## Installation
-
-```bash
-npm install
-
-npm run dev
 ```
 
 ---
 
 ## Challenges Faced
 
-### 1. Supabase API Configuration
+### 1. Supabase Configuration
 
-Initially, the application was unable to fetch data due to an incorrect Supabase URL configuration. The issue was resolved by using the correct project URL instead of the REST endpoint URL.
+Initially, the application was unable to retrieve course data due to an incorrect Supabase API URL configuration. The issue was resolved by using the correct project URL and verifying environment variables.
 
 ### 2. Next.js Build Errors
 
-During deployment, the project failed to build because Framer Motion components were being used inside Server Components. The solution involved separating client-side animation logic into Client Components.
+During deployment, the application encountered build failures caused by Framer Motion components being used inside Server Components. The issue was resolved by properly separating Client Components from Server Components.
 
-### 3. TypeScript Component Props
+### 3. TypeScript Prop Validation
 
-Several type errors occurred while passing course data between components. Proper TypeScript prop definitions were added to ensure type safety.
+Several TypeScript errors occurred while passing dynamic course data between components. Proper prop definitions and type safety checks were implemented to resolve these issues.
 
-### 4. Vercel Deployment Issues
+### 4. Vercel Deployment Debugging
 
-The deployment initially failed due to build-time rendering errors and environment variable configuration issues. These were resolved through debugging build logs and correcting project configuration.
+Deployment initially failed because of build-time rendering and environment variable issues. Vercel build logs were used to identify and fix the problems before successful deployment.
 
 ---
 
 ## Lessons Learned
 
-Through this project I gained practical experience with:
+Through this project, I gained practical experience with:
 
 * Next.js App Router
 * TypeScript
 * Supabase Integration
 * Git & GitHub Workflow
 * Vercel Deployment
-* Debugging Production Build Errors
 * Environment Variable Management
+* Debugging Production Build Errors
 
 ---
 
