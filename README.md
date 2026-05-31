@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Learning Dashboard
 
-## Getting Started
+A modern learning dashboard built using Next.js, TypeScript, Supabase, Tailwind CSS, Framer Motion, and Vercel.
 
-First, run the development server:
+## Project Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This application displays a student's learning progress through dynamically loaded course cards. Course information is stored in Supabase and fetched in real time by the Next.js application.
+
+The dashboard includes:
+
+* Dynamic course data from Supabase
+* Progress tracking cards
+* Responsive dashboard layout
+* Animated progress bars
+* Modern UI using Tailwind CSS
+* Cloud deployment using Vercel
+
+---
+
+## Architecture
+
+### Frontend
+
+* Next.js 16 (App Router)
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* Lucide React Icons
+
+### Backend & Database
+
+* Supabase
+
+Supabase is used as the backend service and database. Course information is stored in a `courses` table and fetched dynamically by the application.
+
+### Deployment
+
+* Vercel
+
+The application is deployed on Vercel with automatic deployments from GitHub.
+
+---
+
+## Database Schema
+
+### courses
+
+| Column     | Type      |
+| ---------- | --------- |
+| id         | uuid      |
+| title      | text      |
+| progress   | integer   |
+| icon_name  | text      |
+| created_at | timestamp |
+
+---
+
+## Environment Variables
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
 
-## Learn More
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Challenges Faced
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. Supabase API Configuration
 
-## Deploy on Vercel
+Initially, the application was unable to fetch data due to an incorrect Supabase URL configuration. The issue was resolved by using the correct project URL instead of the REST endpoint URL.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 2. Next.js Build Errors
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+During deployment, the project failed to build because Framer Motion components were being used inside Server Components. The solution involved separating client-side animation logic into Client Components.
+
+### 3. TypeScript Component Props
+
+Several type errors occurred while passing course data between components. Proper TypeScript prop definitions were added to ensure type safety.
+
+### 4. Vercel Deployment Issues
+
+The deployment initially failed due to build-time rendering errors and environment variable configuration issues. These were resolved through debugging build logs and correcting project configuration.
+
+---
+
+## Lessons Learned
+
+Through this project I gained practical experience with:
+
+* Next.js App Router
+* TypeScript
+* Supabase Integration
+* Git & GitHub Workflow
+* Vercel Deployment
+* Debugging Production Build Errors
+* Environment Variable Management
+
+---
+
+## Live Demo
+
+https://learning-dashboard-7fpx.vercel.app
+
+---
+
+## GitHub Repository
+
+https://github.com/Vallabh-2946/learning-dashboard
