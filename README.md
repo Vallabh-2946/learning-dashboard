@@ -60,9 +60,9 @@ The application is deployed on Vercel with automatic deployments from GitHub.
 Create a `.env.local` file:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_URL=[your_supabase_url](https://iudwzsillmgnehwdlhva.supabase.co
 
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml1ZHd6c2lsbG1nbmVod2RsaHZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxNTE4NDQsImV4cCI6MjA5NTcyNzg0NH0.rsxIXLgqGQEz7JO3m3LxPgfhg4A46hXwV5-m1j3X2To
 ```
 
 ---
